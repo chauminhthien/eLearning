@@ -1,26 +1,18 @@
-import React from 'react';
-import {View, Text} from 'react-native';
-// import AsyncStorage from '@react-native-community/async-storage';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
-class AuthLoading extends React.Component {
+import ChannelScreen from './Channel';
+import TestingScreen from './Testing';
+import HomeScreen from './Home';
 
-  // async componentDidMount() {
-  //   const {navigation} = this.props;
-  //   const tokenStorage = await AsyncStorage.getItem(
-  //     StorageKey.TOKEN_TRAFFICOM_APP,
-  //   );
+const MainNavigation = createStackNavigator({
+  Home     : HomeScreen,
+  Testing  : TestingScreen,
+  Channel  : ChannelScreen
+}, {
+  initialRouteName: 'Home',
+  headerMode      : 'none'
+});
 
-  //   if (tokenStorage && tokenStorage !== null) navigation.navigate('Main');
-  //   else navigation.navigate('Auth');
-  // }
+export default createAppContainer(MainNavigation)
 
-  render(){
-    return (
-      <View>
-        <Text>Home</Text>
-      </View>
-    )
-  }
-}
-
-export default AuthLoading;

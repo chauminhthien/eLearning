@@ -1,0 +1,1 @@
+export const STORE_APP_CHANNEL = 'STORE_APP_CHANNEL';
